@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
-import { SunIcon, MoonIcon, LogoutIcon } from '@heroicons/react/24/outline';
+import { SunIcon, MoonIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 
 const Layout = ({ children, title }) => {
   const { user, logout } = useAuth();
@@ -33,7 +33,7 @@ const Layout = ({ children, title }) => {
                 onClick={logout}
                 className="btn-secondary flex items-center"
               >
-                <LogoutIcon className="h-5 w-5 mr-1" />
+                <ArrowLeftOnRectangleIcon className="h-5 w-5 mr-1" />
                 Sign Out
               </button>
             </div>
