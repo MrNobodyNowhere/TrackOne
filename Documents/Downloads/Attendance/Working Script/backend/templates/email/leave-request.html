@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Leave Request Notification</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
+        .status { padding: 10px; border-radius: 5px; margin: 15px 0; font-weight: bold; }
+        .pending { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .approved { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .rejected { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .button { display: inline-block; background: #667eea; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 10px 5px; }
+        .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Leave Request {{status}}</h1>
+    </div>
+    <div class="content">
+        <h2>Hello {{recipientName}}!</h2>
+        
+        <p><strong>Leave Request Details:</strong></p>
+        <ul>
+            <li>Employee: {{employeeName}} ({{employeeId}})</li>
+            <li>Leave Type: {{leaveType}}</li>
+            <li>Start Date: {{startDate}}</li>
+            <li>End Date: {{endDate}}</li>
+            <li>Duration: {{duration}} day(s)</li>
+            <li>Reason: {{reason}}</li>
+        </ul>
+        
+        <div class="status {{statusClass}}">
+            Status: {{status}}
+        </div>
+        
+        {{#if comments}}
+        <p><strong>Comments:</strong> {{comments}}</p>
+        {{/if}}
+        
+        {{#if showActions}}
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="{{approveUrl}}" class="button" style="background: #28a745;">Approve</a>
+            <a href="{{rejectUrl}}" class="button" style="background: #dc3545;">Reject</a>
+        </div>
+        {{/if}}
+        
+        <a href="{{systemUrl}}" class="button">View in System</a>
+    </div>
+    <div class="footer">
+        <p>&copy; {{currentYear}} Attendance Management System. All rights reserved.</p>
+    </div>
+</body>
+</html>
